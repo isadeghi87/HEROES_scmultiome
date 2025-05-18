@@ -1,0 +1,1 @@
+ bsub -R "rusage[mem=200G]" -q long -n 20 -J 'ml' < run.sh

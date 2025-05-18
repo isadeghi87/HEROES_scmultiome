@@ -1,0 +1,1 @@
+bsub -R "rusage[mem=150G]" -n 30 -q verylong < run_cellranger_arc.sh

@@ -1,0 +1,1 @@
+bsub -R "rusage[mem=200G]" -q long -n 20 -J 'vartrix' < mito_vartrix.sh

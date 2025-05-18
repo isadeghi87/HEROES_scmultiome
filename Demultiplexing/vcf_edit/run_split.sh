@@ -1,0 +1,1 @@
+ bsub -R "rusage[mem=100G]" -q long -n 20 -J 'split'< split_vcf.sh

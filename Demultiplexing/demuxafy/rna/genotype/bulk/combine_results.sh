@@ -1,0 +1,24 @@
+
+#!/bin/bash
+
+module load anaconda3/2021.05
+module load singularity/3.10.5
+module load bcftools/1.9
+pool='pool4'
+##files
+OUT_DIR=/demuxafy/RNA/genotype/combined/$pool
+DEMUXALOT_OUTDIR=/demuxafy/RNA/genotype/demuxalot/$pool
+SOUPORCELL_OUTDIR=/demuxafy/RNA/genotype/souporcell/$pool
+VIREO_OUTDIR=/demuxafy/RNA/genotype/vireo/$pool
+PROJECT_DIR="/home/i439h/projects/pools/AG_Thongjuea"
+DEMUX_DIR="${PROJECT_DIR}/Software/10x_multiomics/demuxafy"
+
+mkdir -p /omics/odcf/analysis/OE0290_projects/heroes-aya_pools/AG_Thongjuea/Result/10x_multiomics/Demultiplexing_results/demuxafy/RNA/genotype/combined/$pool
+# Change to the demuxafy directory
+cd "$DEMUX_DIR" 
+
+singularity exec --bind /omics/odcf/analysis/OE0290_projects/heroes-aya_pools/AG_Thongjuea/Result/10x_multiomics/Demultiplexing_results/demuxafy:/demuxafy Demuxafy.sif Combine_Results.R \
+  -o $OUT_DIR/combined_results.tsv \
+  --souporcell $SOUPORCELL_OUTDIR \
+  --vireo $VIREO_OUTDIR \
+  --method "MajoritySinglet" ## there are other methods that can also be used, please see the help message above for the other options

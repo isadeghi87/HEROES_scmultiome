@@ -1,0 +1,1 @@
+bsub -R "rusage[mem=100G]" -q long -n 10 -J 'combine' < combine_results.sh
