@@ -33,7 +33,7 @@ The following software and libraries are required:
   - `pandas`, `numpy`, `scikit-learn`
 - **R** ≥ 4.1
   - `Seurat` (v4), `Signac`, `tidyverse`, `patchwork`, `GenomicRanges`
-- **Jupyter Notebook** for interactive integration analyses
+
 
 ## Installation
 
